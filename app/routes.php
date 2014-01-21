@@ -55,6 +55,7 @@ Route::post('favorites-delete', ['as' => 'favorites.destroy', function()
 	} else {
 
 		//Do the usual here..
+		
 	}
 }])->before('auth');
 
