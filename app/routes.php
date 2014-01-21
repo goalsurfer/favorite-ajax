@@ -35,13 +35,10 @@ Route::post('favorites', ['as' => 'favorites.store', function()
 		return Post::findOrFail($postId)->favorites()->count();
 
 		
-		//echo "Process ajax request";
-	
+			
 	} else {
 
-		Auth::user()->favorites()->attach(Input::get('post-id'));
-    
-        return Redirect::back();
+		//Do the usual here...
     }
 }])->before('auth');
 
@@ -55,6 +52,9 @@ Route::post('favorites-delete', ['as' => 'favorites.destroy', function()
 
     return Post::findOrFail($postId)->favorites()->count();
 	
+	} else {
+
+		//Do the usual here..
 	}
 }])->before('auth');
 
