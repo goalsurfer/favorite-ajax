@@ -1,7 +1,7 @@
 <?php
 
 // Simulate a logged in user
-Auth::loginUsingId(12);
+//Auth::loginUsingId(12);
 
 Route::get('/', function()
 {
