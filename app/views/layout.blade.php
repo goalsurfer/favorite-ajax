@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta token="{{ csrf_token() }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Favorite with ajax love</title>
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="/css/styles.css">
-    <script src="{{ asset('js/jquery-1.10.2.js') }}"></script>
-    <script src="{{ asset('js/jquery.livequery.js') }}"></script>
 </head>
 
 <body>
@@ -15,7 +15,8 @@
         @yield('container')
     </div>
 
-    
+    <script src="{{ asset('js/jquery-1.10.2.js') }}"></script>
+    <script src="{{ asset('js/jquery.livequery.js') }}"></script>
 	
     <script>
     
@@ -26,7 +27,8 @@
 
             e.preventDefault();    
             var postID   =  $(this).data('id');
-            var d = {postid: postID};
+            var token = "{{ csrf_token() }}";
+            var d = {postid: postID, _token: token};
                         
             $.post('{{ url('favorites') }}', d,
 
@@ -50,7 +52,8 @@
 
             e.preventDefault();    
             var postID   =  $(this).data('id');
-            var d = {postid: postID};
+            var token = "{{ csrf_token() }}";
+            var d = {postid: postID, _token: token};
                         
             $.post('{{ url('favorites-delete') }}', d,
 

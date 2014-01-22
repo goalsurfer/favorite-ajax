@@ -40,7 +40,7 @@ Route::post('favorites', ['as' => 'favorites.store', function()
 
 		//Do the usual here...
     }
-}])->before('auth');
+}])->before('auth|csrf');
 
 Route::post('favorites-delete', ['as' => 'favorites.destroy', function()
 {
@@ -57,7 +57,7 @@ Route::post('favorites-delete', ['as' => 'favorites.destroy', function()
 		//Do the usual here..
 		
 	}
-}])->before('auth');
+}])->before('auth|csrf');
 
 Route::get('posts/{id}/favorites', function ($id)
 {
